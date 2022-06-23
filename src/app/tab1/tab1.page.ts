@@ -14,14 +14,13 @@ export class Tab1Page {
 
   ionViewWillEnter() {
     this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=9e2c197e097a0dd78e5aef2dffedbcdb')
-      .pipe(
-        map(response => response['results'])
-      )
-      .subscribe(users => this.items = users);      
-  }
-
-  apiClick() {
-    console.log(this.items);
+      // .pipe(
+      //   map(response => response['results'])
+      // )
+      .subscribe(response => {
+        console.log(response);
+        this.items = response["results"];
+      });      
   }
 
 }
