@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
+// import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tab1',
