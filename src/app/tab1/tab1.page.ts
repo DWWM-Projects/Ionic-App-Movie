@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 // import { map } from 'rxjs/operators';
 
 @Component({
@@ -10,7 +11,10 @@ import { Component } from '@angular/core';
 export class Tab1Page {
   items: Object[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) {}
 
   ionViewWillEnter() {
     this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=9e2c197e097a0dd78e5aef2dffedbcdb')
@@ -21,6 +25,11 @@ export class Tab1Page {
         console.log(response);
         this.items = response["results"];
       });      
+  }
+
+  navToMovie() {
+    // Naviguer avec le routeur...
+    this.router.navigate(["/movie"]);
   }
 
 }
